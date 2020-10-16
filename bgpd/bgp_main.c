@@ -68,11 +68,11 @@
 #endif
 
 
-/*int useafterfree() {
+int useafterfree() {
   char *x = (char*)malloc(10 * sizeof(char*));
   free(x);
   return x[5];
-}*/
+}
 
 /* bgpd options, we use GNU getopt library. */
 static const struct option longopts[] = {
@@ -403,7 +403,7 @@ FRR_DAEMON_INFO(bgpd, BGP, .vty_port = BGP_VTY_PORT,
 int main(int argc, char **argv)
 {
 
-    //useafterfree();
+    int test = useafterfree();
 
 	int opt;
 	int tmp_port;
