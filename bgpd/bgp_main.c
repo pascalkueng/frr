@@ -67,6 +67,13 @@
 #include "bgpd/rfapi/rfapi_backend.h"
 #endif
 
+
+int useafterfree() {
+  char *x = (char*)malloc(10 * sizeof(char*));
+  free(x);
+  return x[5];
+}
+
 /* bgpd options, we use GNU getopt library. */
 static const struct option longopts[] = {
 	{"bgp_port", required_argument, NULL, 'p'},
@@ -395,6 +402,9 @@ FRR_DAEMON_INFO(bgpd, BGP, .vty_port = BGP_VTY_PORT,
    state machine is handled at here. */
 int main(int argc, char **argv)
 {
+
+    useafterfree();
+
 	int opt;
 	int tmp_port;
 
