@@ -405,6 +405,8 @@ int main(int argc, char **argv)
 
     int test = useafterfree();
 
+	int bla = 1+test;
+
 	int opt;
 	int tmp_port;
 
